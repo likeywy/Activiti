@@ -84,7 +84,7 @@ public class CustomPersistentRememberMeServices extends AbstractRememberMeServic
 
   @Autowired
   public CustomPersistentRememberMeServices(Environment env, org.springframework.security.core.userdetails.UserDetailsService userDetailsService) {
-    super(env.getProperty("security.rememberme.key"), userDetailsService);
+    super(env.getProperty("appconf.security.rememberme.key"), userDetailsService);
 
     setAlwaysRemember(true);
 
@@ -123,7 +123,7 @@ public class CustomPersistentRememberMeServices extends AbstractRememberMeServic
   @Transactional
   protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request, HttpServletResponse response) {
 
-    PersistentToken token = getPersistentToken(cookieTokens);
+    PersistentToken token =  getPersistentToken(cookieTokens);
 
     // Refresh token if refresh period has been passed
     if (new Date().getTime() - token.getTokenDate().getTime() > tokenRefreshDurationInMilliseconds) {
@@ -183,8 +183,12 @@ public class CustomPersistentRememberMeServices extends AbstractRememberMeServic
 
     PersistentToken token = persistentTokenService.getPersistentToken(presentedSeries);
 
-    if (token == null) {
-      // No series match, so we can't authenticate using this cookie
+    try {
+      if (token == null || token.getTokenValue() == null) {
+        // No series match, so we can't authenticate using this cookie
+        throw new RememberMeAuthenticationException("No persistent token found for series id: " + presentedSeries);
+      }
+    } catch (Exception e) {
       throw new RememberMeAuthenticationException("No persistent token found for series id: " + presentedSeries);
     }
 

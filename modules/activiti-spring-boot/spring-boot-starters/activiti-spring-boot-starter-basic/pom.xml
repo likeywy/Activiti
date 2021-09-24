@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.activiti</groupId>
 		<artifactId>activiti-spring-boot-starters</artifactId>
-		<version>6.0.0</version>
+		<version>6.0.0-boot2</version>
 	</parent>
 
 	<artifactId>activiti-spring-boot-starter-basic</artifactId>
@@ -25,11 +25,32 @@
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-engine</artifactId>
+			<version>6.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-spring</artifactId>
-
+			<version>6.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-form-engine</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-form-engine-configurator</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-dmn-engine</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-dmn-engine-configurator</artifactId>
+			<version>6.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,6 +61,7 @@
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-rest</artifactId>
+			<version>6.0.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -55,6 +77,7 @@
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-common-rest</artifactId>
+			<version>6.0.0</version>
 			<optional>true</optional>
 		</dependency>
 
@@ -76,16 +99,19 @@
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-image-generator</artifactId>
+			<version>6.0.0</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-bpmn-model</artifactId>
+			<version>6.0.0</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.activiti</groupId>
 			<artifactId>activiti-bpmn-layout</artifactId>
+			<version>6.0.0</version>
 			<optional>true</optional>
 		</dependency>
 
